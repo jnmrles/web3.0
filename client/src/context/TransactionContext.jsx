@@ -24,7 +24,7 @@ export const TransactionProvider = ({children}) =>{
   const [connectedAccount,setConnectedAccount] = useState(initialState)
   const [formData,setFormData] = useState({addressTo: '', amount: '',keyword: '', message: '' })
   const [isLoading, setIsLoading] =  useState(false)
-  const [transactionCount, setTransactionStart] = useState(localStorage.getItem('transactionCount'))
+  const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount'))
 
   const handleChange  = (e, name )=>{
     setFormData((prevState)=>({...prevState, [name]: e.target.value}))
@@ -94,7 +94,7 @@ export const TransactionProvider = ({children}) =>{
 
       setIsLoading(false)
 
-      const transactionCount = await transactionContract.getTransactionCount()
+      const transactionCount = await transactionContract.getTransactionsCount()
 
       setTransactionCount(transactionCount.toNumber())
 
