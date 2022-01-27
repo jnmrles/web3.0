@@ -21,7 +21,7 @@ const Input = ({placeholder, name, type, value, handleChange}) =>(
 
 
 const Welcome = () =>{
-  const {connectWallet, connectedAccount, formData,setFormData, handleChange, sendTransaction } = useContext(TransactionContext)
+  const {connectWallet, currentAccount, formData,setFormData, handleChange, sendTransaction, isLoading } = useContext(TransactionContext)
 
 
 
@@ -44,7 +44,7 @@ const Welcome = () =>{
        <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
          Explore the Crypto World. Buy and Sell Crypto Currencies easily on Krypto
        </p>
-       { !connectedAccount &&(
+       { !currentAccount &&(
           <button type="button" onClick={connectWallet} className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"> <p className="text-white text-base font-semibold">Connect Wallet</p></button>)
 
        }
@@ -89,7 +89,7 @@ const Welcome = () =>{
            </div>
            <div>
              <p className="text-white font-light text-sm">
-             {connectedAccount? shortenAddress(connectedAccount): "connect Wallet"}
+             {currentAccount? shortenAddress(currentAccount): "connect Wallet"}
              </p>
              <p className="text-white font-semibold text-lg mt-1">
                Ethereum
@@ -106,7 +106,7 @@ const Welcome = () =>{
 
           <div className="h-[1px] w-full bg-gray-400 my-2"/>
 
-          {false ? <Loader/> : <button type="button" onClick={handleSubmit} className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"> Send Now </button>
+          {isLoading ? <Loader/> : <button type="button" onClick={handleSubmit} className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"> Send Now </button>
 
           }
 
