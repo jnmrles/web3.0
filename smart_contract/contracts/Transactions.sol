@@ -17,8 +17,7 @@ contract Transactions {
         string keyword
     );
 
-    // similar to object
-
+    // similar to object. properties of a Transaction
     struct TransferStruct {
         address sender;
         address reciever;
@@ -27,8 +26,8 @@ contract Transactions {
         uint256 timestamp;
         string keyword;
     }
-    // define an array of all transactions
 
+    // define an array of all transactions
     TransferStruct[] transactions;
 
     function addToBlockChain(
@@ -38,7 +37,7 @@ contract Transactions {
         string memory keyword
     ) public {
         transactionsCounter += 1;
-        // sender is something u automatically get in msg when u call a function in the blockchain
+        // sender is something you automatically get in msg when u call a function in the blockchain
         transactions.push(
             TransferStruct(
                 msg.sender,

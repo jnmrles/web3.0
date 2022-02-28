@@ -25,12 +25,12 @@ const Services = () =>{
  <div className="flex flex-col md:flex-row w-full justify-center items-center gradient-bg-services">
   <div className="flex mf:fex-row flex-col items-center justify-between md:p-20 py-12 px-4 ">
     <div className="flex-1 flex flex-col justify-start items-start ">
-      <h1 className="text-white text-3xl sm:text-5xl py-2"> Services that we
+      <h1 className="text-white text-3xl sm:text-5xl py-2"> Services you can
 
 
 
         <br/>
-        continue to improve
+        depend on
 
          </h1>
     </div>
